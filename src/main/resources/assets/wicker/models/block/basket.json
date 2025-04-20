@@ -1,0 +1,10 @@
+{
+  "parent": "wicker:block/orientable_with_back",
+  "textures": {
+    "bottom": "wicker:block/basket_bottom",
+    "front": "wicker:block/basket_front",
+    "particle": "wicker:block/basket_side",
+    "side": "wicker:block/basket_side",
+    "top": "wicker:block/basket_top"
+  }
+}
