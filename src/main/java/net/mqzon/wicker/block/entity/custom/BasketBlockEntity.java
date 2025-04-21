@@ -28,11 +28,9 @@ import java.util.stream.IntStream;
 
 public class BasketBlockEntity extends LootableContainerBlockEntity implements ImplementedInventory {
     private static final int BASKET_SIZE = 27;
-    private DefaultedList<ItemStack> inventory;// = DefaultedList.ofSize(18, ItemStack.EMPTY);
+    private DefaultedList<ItemStack> inventory;
     private int viewerCount;
     private static final int[] AVAILABLE_SLOTS = IntStream.range(0,BASKET_SIZE).toArray();
-
-
 
     public BasketBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.BASKET_BE, pos, state);
@@ -96,10 +94,7 @@ public class BasketBlockEntity extends LootableContainerBlockEntity implements I
         if (!this.readLootTable(nbt) && nbt.contains("Items", 9)) {
             Inventories.readNbt(nbt, this.inventory, registries);
         }
-
     }
-
-
 
     protected DefaultedList<ItemStack> getHeldStacks() {
         return this.inventory;
@@ -121,15 +116,11 @@ public class BasketBlockEntity extends LootableContainerBlockEntity implements I
     @Nullable
     @Override
     public Packet<ClientPlayPacketListener> toUpdatePacket() {
-//        return super.toUpdatePacket();
         return BlockEntityUpdateS2CPacket.create(this);
     }
 
     @Override
     public NbtCompound toInitialChunkDataNbt(RegistryWrapper.WrapperLookup registries) {
-//        return super.toInitialChunkDataNbt(registries);
         return createNbt(registries);
     }
-
-
 }

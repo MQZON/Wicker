@@ -13,9 +13,7 @@ import net.mqzon.wicker.Wicker;
 import net.mqzon.wicker.block.custom.BasketBlock;
 
 public class ModBlocks {
-
-
-    public static final Block BASKET = registerBlock("basket", new BasketBlock(AbstractBlock.Settings.create().nonOpaque()
+    public static final Block BASKET = registerBlock("basket", new BasketBlock(AbstractBlock.Settings.create().strength(1.0F).nonOpaque()
             .registryKey(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(net.mqzon.wicker.Wicker.MOD_ID, "basket")))));
 
     private static Block registerBlock(String name, Block block) {

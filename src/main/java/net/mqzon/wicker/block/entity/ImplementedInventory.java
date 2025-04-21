@@ -27,8 +27,6 @@ public interface ImplementedInventory extends SidedInventory {
         return result;
     }
 
-
-
     @Override
     default boolean canInsert(int slot, ItemStack stack, @Nullable Direction side) { return true; }
 
@@ -60,7 +58,6 @@ public interface ImplementedInventory extends SidedInventory {
         if (!result.isEmpty()) {
             markDirty();
         }
-
         return result;
     }
 
