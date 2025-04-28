@@ -11,8 +11,9 @@ import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.screen.GenericContainerScreenHandler;
 import net.minecraft.screen.ScreenHandler;
-import net.minecraft.screen.ShulkerBoxScreenHandler;
+import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
@@ -27,7 +28,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.stream.IntStream;
 
 public class BasketBlockEntity extends LootableContainerBlockEntity implements ImplementedInventory {
-    private static final int BASKET_SIZE = 27;
+    private static final int BASKET_SIZE = 18;
     private DefaultedList<ItemStack> inventory;
     private int viewerCount;
     private static final int[] AVAILABLE_SLOTS = IntStream.range(0,BASKET_SIZE).toArray();
@@ -110,7 +111,7 @@ public class BasketBlockEntity extends LootableContainerBlockEntity implements I
 
 
     protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
-        return new ShulkerBoxScreenHandler(syncId, playerInventory, this);
+       return new GenericContainerScreenHandler(ScreenHandlerType.GENERIC_9X2, syncId, playerInventory, this, 2);
     }
 
     @Nullable
