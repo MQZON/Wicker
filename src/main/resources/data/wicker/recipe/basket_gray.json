@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:crafting_transmute",
+  "category": "misc",
+  "input": "#wicker:baskets",
+  "material": "minecraft:gray_carpet",
+  "result": "wicker:basket_gray"
+}

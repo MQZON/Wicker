@@ -1,6 +1,7 @@
 package net.mqzon.wicker.block.custom;
 
 import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.ItemEntity;
@@ -24,16 +25,23 @@ import net.mqzon.wicker.block.entity.custom.BasketBlockEntity;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Optional;
 
 public class BasketBlock extends BlockWithEntity implements BlockEntityProvider {
     public static final EnumProperty<Direction> FACING = Properties.HORIZONTAL_FACING;
     public static final Identifier CONTENTS_DYNAMIC_DROP_ID = Identifier.ofVanilla("contents");
+    private final DyeColor color;
 
-    public BasketBlock(Settings settings) {
+
+    public BasketBlock(@Nullable DyeColor color, Settings settings) {
         super(settings);
+        this.color = color;
     }
 
-    public static final MapCodec<BasketBlock> CODEC = BasketBlock.createCodec(BasketBlock::new);
+    public static final MapCodec<BasketBlock> CODEC = RecordCodecBuilder.mapCodec(
+            instance -> instance.group(DyeColor.CODEC.optionalFieldOf("color").forGetter(block -> Optional.ofNullable(block.color)), createSettingsCodec())
+                    .apply(instance, (color, settings) -> new BasketBlock((DyeColor)color.orElse(null), settings))
+    );
 
     @Override
     protected MapCodec<? extends BlockWithEntity> getCodec() {
@@ -42,7 +50,7 @@ public class BasketBlock extends BlockWithEntity implements BlockEntityProvider 
 
     @Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new BasketBlockEntity(pos, state);
+        return new BasketBlockEntity(this.color, pos, state);
     }
 
     @Override
@@ -89,7 +97,7 @@ public class BasketBlock extends BlockWithEntity implements BlockEntityProvider 
         BlockEntity blockEntity = world.getBlockEntity(pos);
         if (blockEntity instanceof BasketBlockEntity basketBlockEntity) {
             if (!world.isClient && player.isCreative() && !basketBlockEntity.isEmpty()) {
-                ItemStack itemStack = getItemStack(null); // TODO: change to getColor once implemented
+                ItemStack itemStack = getItemStack(this.getColor());
                 itemStack.applyComponentsFrom(blockEntity.createComponentMap());
                 ItemEntity itemEntity = new ItemEntity(world, (double)pos.getX() + 0.5, (double)pos.getY() + 0.5, (double)pos.getZ() + 0.5, itemStack);
                 itemEntity.setToDefaultPickupDelay();
@@ -122,25 +130,30 @@ public class BasketBlock extends BlockWithEntity implements BlockEntityProvider 
         if (dyeColor == null) {
             return ModBlocks.BASKET;
         } else {
-            return switch (dyeColor) { //TODO: add colors
-                case WHITE -> ModBlocks.BASKET;//Blocks.WHITE_SHULKER_BOX;
-                case ORANGE -> ModBlocks.BASKET;//Blocks.ORANGE_SHULKER_BOX;
-                case MAGENTA -> ModBlocks.BASKET;//Blocks.MAGENTA_SHULKER_BOX;
-                case LIGHT_BLUE -> ModBlocks.BASKET;//Blocks.LIGHT_BLUE_SHULKER_BOX;
-                case YELLOW -> ModBlocks.BASKET;//Blocks.YELLOW_SHULKER_BOX;
-                case LIME -> ModBlocks.BASKET;//Blocks.LIME_SHULKER_BOX;
-                case PINK -> ModBlocks.BASKET;//Blocks.PINK_SHULKER_BOX;
-                case GRAY -> ModBlocks.BASKET;//Blocks.GRAY_SHULKER_BOX;
-                case LIGHT_GRAY -> ModBlocks.BASKET;//Blocks.LIGHT_GRAY_SHULKER_BOX;
-                case CYAN -> ModBlocks.BASKET;//Blocks.CYAN_SHULKER_BOX;
-                case BLUE -> ModBlocks.BASKET;//Blocks.BLUE_SHULKER_BOX;
-                case BROWN -> ModBlocks.BASKET;//Blocks.BROWN_SHULKER_BOX;
-                case GREEN -> ModBlocks.BASKET;//Blocks.GREEN_SHULKER_BOX;
-                case RED -> ModBlocks.BASKET;//Blocks.RED_SHULKER_BOX;
-                case BLACK -> ModBlocks.BASKET;//Blocks.BLACK_SHULKER_BOX;
-                case PURPLE -> ModBlocks.BASKET;//Blocks.PURPLE_SHULKER_BOX;
+            return switch (dyeColor) {
+                case WHITE -> ModBlocks.BASKET_WHITE;
+                case ORANGE -> ModBlocks.BASKET_ORANGE;
+                case MAGENTA -> ModBlocks.BASKET_MAGENTA;
+                case LIGHT_BLUE -> ModBlocks.BASKET_LIGHT_BLUE;
+                case YELLOW -> ModBlocks.BASKET_YELLOW;
+                case LIME -> ModBlocks.BASKET_LIME;
+                case PINK -> ModBlocks.BASKET_PINK;
+                case GRAY -> ModBlocks.BASKET_GRAY;
+                case LIGHT_GRAY -> ModBlocks.BASKET_LIGHT_GRAY;
+                case CYAN -> ModBlocks.BASKET_CYAN;
+                case BLUE -> ModBlocks.BASKET_BLUE;
+                case BROWN -> ModBlocks.BASKET_BROWN;
+                case GREEN -> ModBlocks.BASKET_GREEN;
+                case RED -> ModBlocks.BASKET_RED;
+                case BLACK -> ModBlocks.BASKET_BLACK;
+                case PURPLE -> ModBlocks.BASKET_PURPLE;
             };
         }
+    }
+
+    @Nullable
+    public DyeColor getColor() {
+        return this.color;
     }
 
     @Override

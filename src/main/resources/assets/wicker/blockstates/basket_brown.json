@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "wicker:block/basket_brown"
+    },
+    "facing=east": {
+      "model": "wicker:block/basket_brown",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "wicker:block/basket_brown",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "wicker:block/basket_brown",
+      "y": 270
+    }
+  }
+}

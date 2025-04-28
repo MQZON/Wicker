@@ -1,7 +1,11 @@
 package net.mqzon.wicker.block.entity.custom;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.ShulkerBoxBlock;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.entity.LootableContainerBlockEntity;
+import net.minecraft.block.entity.ShulkerBoxBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
@@ -17,10 +21,12 @@ import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
+import net.minecraft.util.DyeColor;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.event.GameEvent;
+import net.mqzon.wicker.block.custom.BasketBlock;
 import net.mqzon.wicker.block.entity.ImplementedInventory;
 import net.mqzon.wicker.block.entity.ModBlockEntities;
 import org.jetbrains.annotations.Nullable;
@@ -32,11 +38,27 @@ public class BasketBlockEntity extends LootableContainerBlockEntity implements I
     private DefaultedList<ItemStack> inventory;
     private int viewerCount;
     private static final int[] AVAILABLE_SLOTS = IntStream.range(0,BASKET_SIZE).toArray();
+    @Nullable
+    private final DyeColor cachedColor;
+
+    public BasketBlockEntity(@Nullable DyeColor color, BlockPos pos, BlockState state) {
+        super(ModBlockEntities.BASKET_BE, pos, state);
+        this.inventory = DefaultedList.ofSize(BASKET_SIZE, ItemStack.EMPTY);
+        this.cachedColor = color;
+    }
 
     public BasketBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.BASKET_BE, pos, state);
         this.inventory = DefaultedList.ofSize(BASKET_SIZE, ItemStack.EMPTY);
+        Block block = state.getBlock();
+        DyeColor color;
+        if (block instanceof BasketBlock basketBlock) {
+            color = basketBlock.getColor();
+        } else {
+            color = null;
+        }
 
+        this.cachedColor = color;
     }
 
     @Override
@@ -109,6 +131,10 @@ public class BasketBlockEntity extends LootableContainerBlockEntity implements I
         return AVAILABLE_SLOTS;
     }
 
+    @Nullable
+    public DyeColor getColor() {
+        return this.cachedColor;
+    }
 
     protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
        return new GenericContainerScreenHandler(ScreenHandlerType.GENERIC_9X2, syncId, playerInventory, this, 2);

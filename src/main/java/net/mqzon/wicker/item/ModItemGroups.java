@@ -21,6 +21,22 @@ public class ModItemGroups {
                     .entries((displayContext, entries) -> {
                         entries.add(ModItems.WICKER);
                         entries.add(ModBlocks.BASKET);
+                        entries.add(ModBlocks.BASKET_WHITE);
+                        entries.add(ModBlocks.BASKET_LIGHT_GRAY);
+                        entries.add(ModBlocks.BASKET_GRAY);
+                        entries.add(ModBlocks.BASKET_BLACK);
+                        entries.add(ModBlocks.BASKET_BROWN);
+                        entries.add(ModBlocks.BASKET_RED);
+                        entries.add(ModBlocks.BASKET_ORANGE);
+                        entries.add(ModBlocks.BASKET_YELLOW);
+                        entries.add(ModBlocks.BASKET_LIME);
+                        entries.add(ModBlocks.BASKET_GREEN);
+                        entries.add(ModBlocks.BASKET_CYAN);
+                        entries.add(ModBlocks.BASKET_LIGHT_BLUE);
+                        entries.add(ModBlocks.BASKET_BLUE);
+                        entries.add(ModBlocks.BASKET_PURPLE);
+                        entries.add(ModBlocks.BASKET_MAGENTA);
+                        entries.add(ModBlocks.BASKET_PINK);
                     }).build());
 
     public static void registerItemGroups() {
