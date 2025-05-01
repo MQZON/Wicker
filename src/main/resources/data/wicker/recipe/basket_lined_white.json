@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "wicker:wicker",
+    "C": "minecraft:white_carpet"
+  },
+  "pattern": [
+    "###",
+    "#C#",
+    "###"
+  ],
+  "result": {
+    "count": 1,
+    "id": "wicker:basket_white"
+  }
+}
