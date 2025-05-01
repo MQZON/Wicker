@@ -85,7 +85,6 @@ public class BasketBlock extends BlockWithEntity implements BlockEntityProvider 
             BlockEntity blockEntity = world.getBlockEntity(pos);
             if (blockEntity instanceof BasketBlockEntity basketBlockEntity) {
                 player.openHandledScreen(basketBlockEntity);
-//                player.incrementStat(Stats.OPEN_BASKET); //TODO: implement OPEN_BASKET stat?
                 PiglinBrain.onGuardedBlockInteracted(serverWorld, player, true);
             }
         }

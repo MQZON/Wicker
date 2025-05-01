@@ -1,14 +1,10 @@
 package net.mqzon.wicker.block.entity;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.BlockPos;
 import net.mqzon.wicker.Wicker;
 import net.mqzon.wicker.block.ModBlocks;
 import net.mqzon.wicker.block.entity.custom.BasketBlockEntity;
