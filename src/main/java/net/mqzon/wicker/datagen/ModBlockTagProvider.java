@@ -3,6 +3,7 @@ package net.mqzon.wicker.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.tag.BlockTags;
 import net.mqzon.wicker.block.ModBlocks;
 import net.mqzon.wicker.utils.ModTags;
 
@@ -37,5 +38,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.BASKET)
                 .addTag(ModTags.Blocks.LINED_BASKETS);
 
+        getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
+                .addTag(ModTags.Blocks.BASKETS);
     }
 }
