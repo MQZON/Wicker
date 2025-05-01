@@ -1,0 +1,18 @@
+// 1.21.4	-999999999-01-01T00:00:00	Wicker/Block Loot Tables
+a59457127ae2f5e56d1995338a96f6724a6171c6 data/wicker/loot_table/blocks/basket.json
+a255d0bb403d6feb812bbdcb3c262b5b01124de3 data/wicker/loot_table/blocks/basket_black.json
+e1eb8c7f2267ec19517cc272373b9c3474cb1915 data/wicker/loot_table/blocks/basket_blue.json
+12639a27cdded37ff97a8b94f9d7a194042f5250 data/wicker/loot_table/blocks/basket_brown.json
+304b14dbba5e3115f838345b2d9c180af5a1a320 data/wicker/loot_table/blocks/basket_cyan.json
+3e9f8b46a6f49f17155943d6f413b27dc4bdf0c5 data/wicker/loot_table/blocks/basket_gray.json
+ae361a5454d74cf51bb6e78edacd9dfec4ec6fdd data/wicker/loot_table/blocks/basket_green.json
+10e6b72123975c3f5d5260da734602667d216954 data/wicker/loot_table/blocks/basket_light_blue.json
+1c54cd8d60c28f2a2717228cd57f357962706e32 data/wicker/loot_table/blocks/basket_light_gray.json
+6fa64a3c68802d1b050e006d3ab01a81d75ffadc data/wicker/loot_table/blocks/basket_lime.json
+384e28f9df2508b61e81e7cb2c656865b7209a83 data/wicker/loot_table/blocks/basket_magenta.json
+638780543348a065753a3ade2b661a9a72b78a22 data/wicker/loot_table/blocks/basket_orange.json
+87c50d162f18db49629116b60f59645b29596301 data/wicker/loot_table/blocks/basket_pink.json
+27216db4344d1ccf5d3cd90d0e31c297bd3cc2dd data/wicker/loot_table/blocks/basket_purple.json
+636240da052867dabcfd7d1c1291e63273b5d603 data/wicker/loot_table/blocks/basket_red.json
+ec4adead0089c08043d8f416dfc9546c00219e45 data/wicker/loot_table/blocks/basket_white.json
+32440a7f66da60ee0ddc6b93f9f4b62a303317f1 data/wicker/loot_table/blocks/basket_yellow.json
