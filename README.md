@@ -13,6 +13,6 @@ Once you have some wicker, you can craft it into baskets.
 Baskets can be lined with Wool Carpets to differentiate them.  
 ![Basket Lining Recipe](https://github.com/MQZON/Wicker/blob/master/images/basket_lining_recipe.png?raw=true)
 
-You can also craft Lined Baskets directly.
+You can also craft Lined Baskets directly.  
 ![Lined Basket Recipe](https://github.com/MQZON/Wicker/blob/master/images/lined_basket_recipe.png?raw=true)
 
