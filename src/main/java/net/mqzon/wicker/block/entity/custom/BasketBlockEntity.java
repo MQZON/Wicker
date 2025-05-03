@@ -73,7 +73,7 @@ public class BasketBlockEntity extends LootableContainerBlockEntity implements I
             this.world.addSyncedBlockEvent(this.pos, this.getCachedState().getBlock(), 1, this.viewerCount);
             if (this.viewerCount == 1) {
                 this.world.emitGameEvent(player, GameEvent.CONTAINER_OPEN, this.pos);
-                this.world.playSound((PlayerEntity)null, this.pos, SoundEvents.BLOCK_SHULKER_BOX_OPEN, SoundCategory.BLOCKS, 0.5F, this.world.random.nextFloat() * 0.1F + 0.9F);
+                this.world.playSound((PlayerEntity)null, this.pos, SoundEvents.BLOCK_AZALEA_STEP, SoundCategory.BLOCKS, 0.5F, this.world.random.nextFloat() * 0.1F + 0.9F);
             }
         }
     }
@@ -84,7 +84,7 @@ public class BasketBlockEntity extends LootableContainerBlockEntity implements I
             this.world.addSyncedBlockEvent(this.pos, this.getCachedState().getBlock(), 1, this.viewerCount);
             if (this.viewerCount <= 0) {
                 this.world.emitGameEvent(player, GameEvent.CONTAINER_CLOSE, this.pos);
-                this.world.playSound((PlayerEntity)null, this.pos, SoundEvents.BLOCK_SHULKER_BOX_CLOSE, SoundCategory.BLOCKS, 0.5F, this.world.random.nextFloat() * 0.1F + 0.9F);
+                this.world.playSound((PlayerEntity)null, this.pos, SoundEvents.BLOCK_GRASS_STEP, SoundCategory.BLOCKS, 0.5F, this.world.random.nextFloat() * 0.1F + 0.9F);
             }
         }
     }
