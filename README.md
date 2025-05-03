@@ -1,9 +1,8 @@
-This mod adds Wicker Baskets to Minecraft.
+This mod adds Wicker Baskets to Minecraft, an early-game alternative to Shulker Boxes. 
 
 **Preview**  
 ![Wicker](https://github.com/MQZON/Wicker/blob/master/images/baskets_preview.png?raw=true)
 
-Baskets are an early-game alternative to Shulker Boxes. 
 
 To craft Wicker items, you'll first need to craft a few Patches of Wicker.  
 ![Wicker Recipe](https://github.com/MQZON/Wicker/blob/master/images/wicker_recipe.png?raw=true)
