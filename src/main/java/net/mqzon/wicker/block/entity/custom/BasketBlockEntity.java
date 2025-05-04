@@ -31,7 +31,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.stream.IntStream;
 
 public class BasketBlockEntity extends LootableContainerBlockEntity implements ImplementedInventory {
-    private static final int BASKET_SIZE = 18;
+    private static final int BASKET_SIZE = 9;
     private DefaultedList<ItemStack> inventory;
     private int viewerCount;
     private static final int[] AVAILABLE_SLOTS = IntStream.range(0,BASKET_SIZE).toArray();
@@ -134,7 +134,7 @@ public class BasketBlockEntity extends LootableContainerBlockEntity implements I
     }
 
     protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
-       return new GenericContainerScreenHandler(ScreenHandlerType.GENERIC_9X2, syncId, playerInventory, this, 2);
+       return new GenericContainerScreenHandler(ScreenHandlerType.GENERIC_9X1, syncId, playerInventory, this, 1);
     }
 
     @Nullable
